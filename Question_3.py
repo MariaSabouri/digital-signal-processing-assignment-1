@@ -17,7 +17,7 @@ def plot_fft(fs, N, f_signal, zero_padd = 0):
     
     # Time-domain plot
     axs[0].stem(t, x_fft)
-    axs[0].set_title(f'Time-domain Signal | fs={fs}Hz, N={N}')
+    axs[0].set_title(f'Time-domain Signal | fs={fs}Hz, N={N+zero_padd}')
     axs[0].set_xlabel('Time (s)')
     axs[0].set_ylabel('Amplitude')
     axs[0].grid(True)

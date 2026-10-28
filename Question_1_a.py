@@ -2,33 +2,25 @@ import numpy as np
 import scipy.signal as sig
 import matplotlib.pyplot as plt
 
-# -------------------------------------------------
-# H(z) = 3/4 * z(z+1) / ((z+1/2)(z-1/4))
-# Convert to standard polynomial form in z^-1
-# -------------------------------------------------
 
-# Poles and zeros directly from factored form:
-zeros = np.array([0, -1])       # z=0 and z=-1
-poles = np.array([-0.5, 0.25])  # z=-1/2 and z=1/4
+# Poles and zeros 
+zeros = np.array([0, -1])       
+poles = np.array([-0.5, 0.25])  
 gain = 3/4
 
-# -------------------------------------------------
-# Check stability: all poles must be inside |z|<1
-# -------------------------------------------------
-print("Poles:", poles)
-print("Pole magnitudes:", np.abs(poles))
-print("All poles inside unit circle?  -->", np.all(np.abs(poles) < 1))
 
-# -------------------------------------------------
-# Check causality: ROC is |z| > max|p_i|
-# -------------------------------------------------
+# Check
+# print(poles)
+# print(np.abs(poles))
+print("All poles inside unit circle?", np.all(np.abs(poles) < 1))
+
+
+# causality
 outermost_pole = np.max(np.abs(poles))
-print("Outermost pole radius:", outermost_pole)
-print("Causal ROC is: |z| >", outermost_pole)
+# print(outermost_pole)
 
-# -------------------------------------------------
-# Plot pole-zero diagram
-# -------------------------------------------------
+
+# Plot(this part of code is done by chat gpt)
 plt.figure(figsize=(5,5))
 
 # Plot unit circle

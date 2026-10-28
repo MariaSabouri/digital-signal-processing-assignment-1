@@ -15,11 +15,13 @@ def plot_dft_idft(idft, dft):
 
     axes[0].stem(np.abs(idft))
     axes[0].set_title("Original Signal")
+    axes[0].grid(True)
 
     N = len(dft)
     omega = np.linspace(-np.pi, np.pi, N, endpoint=False)
     axes[1].stem(omega, np.abs(dft))
     axes[1].set_title("Magnitude Spectrum")
+    axes[1].grid(True)
 
     plt.show()
 
@@ -34,7 +36,7 @@ idft = inv_matrix_coef.dot(dft)
 idft_rounded = np.round(idft.real, 3) + 1j*np.round(idft.imag, 3)
 # print(idft_rounded)
 
-plot_dft_idft(idft = idft_rounded, dft = dft)
+# plot_dft_idft(idft = idft_rounded, dft = dft)
 #----------------------------------------------------------------------
 
 zero_padd = np.zeros((8,))
@@ -55,7 +57,7 @@ matrix_coef = mat_coef(16)
 dft_3 = matrix_coef.dot(idft_3)
 dft_rounded_3 = np.round(dft_3.real, 3) + 1j*np.round(dft_3.imag, 3)
 # print(dft_rounded_3)
-# plot_dft_idft(idft = idft_3, dft = dft_rounded_3)
+plot_dft_idft(idft = idft_3, dft = dft_rounded_3)
 
 #----------------------------------------------------------------------
 

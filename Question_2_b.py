@@ -15,11 +15,11 @@ for n in range(P + L - 1):
     H = aux_h[P-1:(P-1) + L]
     y_linear[n] = np.sum(H * x)
 
-print(y_linear)
+print("y_linear", y_linear)
 #-------------------------circular convolution--------------------------------
 for n in range(L):
     for k in range(P):
         y_circular[n] += h[k] * x[(n - k) % L]  
-print(y_circular)  
+print("y_circular", y_circular)  
 
     
